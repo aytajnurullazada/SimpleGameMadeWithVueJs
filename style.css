@@ -1,0 +1,46 @@
+*{
+    list-style: none;
+}
+.player{
+    width: 300px;
+}
+.playerHealth{
+    background-color: rgba(222, 215, 215, 0.93);
+    margin-right: 10px;
+    height: 35px;
+    transition: width 500ms;
+
+
+}
+#exercise{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.playerHealth .color{
+    background-color: #198754;
+    width: 100%;
+    height: 100%;
+    transition: width 500ms;
+
+}
+.buttons, .log{
+    border: 1px solid black;
+    padding: 20px 40px;
+}
+button{
+    margin-right: 20px;
+}
+
+.playerLi{
+    color: blue;
+    background-color: rgb(154, 154, 255);
+    margin-bottom: 5px;
+}
+.monsterLi{
+    color: red;
+    background-color: #ff7c7c;
+    margin-bottom: 5px;
+}
+

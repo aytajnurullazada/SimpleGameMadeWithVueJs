@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="exercise" class="d-flex ">
+    <div class="d-flex justify-content-between">
+        <div class="player">
+            <h2>You</h2>
+            <div class="playerHealth">
+                <div :style="{width: yHealthWidth+'%'}" class="color you">
+                    {{yHealthWidth + '%'}}
+                </div>
+            </div>
+        </div>
+        <div class="player">
+            <h2>Monster</h2>
+            <div class="playerHealth">
+                <div :style="{width: mHealthWidth+'%'}" class="color monster">
+                    {{mHealthWidth + '%'}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div v-show="!game_is_on">
+        <button @click="game_is_on=!game_is_on" class="btn btn-light">Start Game</button>
+    </div>
+    <div v-show="game_is_on" class="buttons">
+        <button @click="attack()" class="btn btn-danger attack">attack</button>
+        <button @click="specialAttack()" class="btn btn-warning specialAttack">special Attack</button>
+        <button @click="firstAid()" class="btn btn-success firstAid">First Aid</button>
+        <button @click="giveUp()" class="btn btn-light giveUp">giveUp</button>
+    </div>
+    <br>
+    <div v-if="logs.length>0" v-show="game_started" class="log">
+        <ul style="width: 600px" class="">
+            <li v-for="log in logs"
+            :class="{'monsterLi': log.turn == 'M' , 'playerLi': log.turn == 'P'}"
+            >
+               {{log.text}}
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
